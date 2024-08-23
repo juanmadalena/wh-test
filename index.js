@@ -1,13 +1,18 @@
 const express = require('express');
+const model = require('./database/model');
 
 const app = express();
+
+app.use(express.json())
 
 app.get('/', (req, res) => {
     res.send('Hola mundo');
 });
 
 app.post('/', (req, res) => {
-    console.log('event', req.body);
+    const { body } = req;
+    console.log('event', body);
+    model({ body: req.body }).save();
     res.send('Petición POST');
 });
 
