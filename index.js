@@ -1,9 +1,8 @@
 const express = require('express');
-// const model = require('./database/model');
 
 const app = express();
 
-app.use(express.json())
+app.use(express.text({ type: 'application/json' }));
 
 app.get('/', (req, res) => {
     res.send('Hola mundo');
@@ -14,6 +13,13 @@ app.post('/', (req, res) => {
     console.log('event', body);
     // model({ body: req.body }).save();
     res.send('Petición POST');
+});
+
+app.post('/events', (req, res) => {
+    const { body } = req;
+    console.log('body:', body);
+    // model({ body: req.body }).save();
+    res.send('Petición BODY');
 });
 
 app.listen(3000, () => {
