@@ -19,7 +19,7 @@ app.post('/events', (req, res) => {
     const { body } = req;
     console.log('body:', body);
     // model({ body: req.body }).save();
-    res.send('Petición BODY');
+    res.sendStatus(200);
 });
 
 app.listen(3000, () => {
