@@ -1,5 +1,5 @@
 const express = require('express');
-const model = require('./database/model');
+// const model = require('./database/model');
 
 const app = express();
 
@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
     const { body } = req;
     console.log('event', body);
-    model({ body: req.body }).save();
+    // model({ body: req.body }).save();
     res.send('Petición POST');
 });
 
